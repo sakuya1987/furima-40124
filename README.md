@@ -12,7 +12,7 @@
 | first_name             | string | null: false               |
 | last_name_kana         | string | null: false               |
 | first_name_kana        | string | null: false               |
-| birth_date             | Date   | null: false               |
+| birth_date             | date   | null: false               |
 
 ### Association
 
@@ -23,7 +23,7 @@
 
 | Column             | Type        | Options                        |
 | ------------------ | ----------- | ------------------------------ |
-| name               | text        | null: false                    |
+| name               | string      | null: false                    |
 | info               | text        | null: false                    |
 | category_id        | integer     | null: false                    |
 | status_id          | integer     | null: false                    |
@@ -36,7 +36,7 @@
 ### Association
 
 - belongs_to :user
-- has_one.   :older
+- has_one    :order
 
 ## orders テーブル
 
@@ -61,9 +61,9 @@
 | addresses          | String      | null: false                    |
 | building           | String      | null: false                    |
 | phone_number       | String      |                                |
-| older              | references  | null: false, foreign_key: true |
+| order              | references  | null: false, foreign_key: true |
 
 
 ### Association
 
-- belongs_to order
+- belongs_to :order

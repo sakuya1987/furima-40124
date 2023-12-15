@@ -33,6 +33,7 @@
 | price              | integer     | null: false                    |
 | user               | references  | null: false, foreign_key: true |
 - imageは、ActiveStorageで実装するため、テーブル設計内の記述に含めない。
+
 ### Association
 
 - belongs_to :user
@@ -55,12 +56,12 @@
 
 | Column             | Type        | Options                        |
 | ------------------ | ----------- | ------------------------------ |
-| postal_code        | String      | null: false                    |
+| postal_code        | string      | null: false                    |
 | prefecture_id      | integer     | null: false                    |
-| city               | String      | null: false                    |
-| addresses          | String      | null: false                    |
-| building           | String      | null: false                    |
-| phone_number       | String      |                                |
+| city               | string      | null: false                    |
+| addresses          | string      | null: false                    |
+| building           | string      | null: false                    |
+| phone_number       | string      |                                |
 | order              | references  | null: false, foreign_key: true |
 
 

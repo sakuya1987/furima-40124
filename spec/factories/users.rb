@@ -4,9 +4,9 @@ FactoryBot.define do
     japanese_user = Gimei.name
     random_date = Faker::Date.between(from: '1930-01-01', to: '2018-12-31')
 
-    nickname { Faker::Name.unique.first_name }
-    email { Faker::Internet.email }
-    password { Faker::Internet.password(min_length: 6) }
+    nickname { Faker::Name.unique.name }
+    email { Faker::Internet.unique.email }
+    password { '1a' + Faker::Internet.unique.password(min_length: 6) }
     password_confirmation { password }
     last_name { japanese_user.last.kanji }
     first_name { japanese_user.first.kanji }

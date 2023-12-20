@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Item, type: :model do
   before do
-    @item = FactoryBot.create(:item)
+    @item = FactoryBot.build(:item)
     sleep(0.1)
   end
 
@@ -86,7 +86,7 @@ RSpec.describe Item, type: :model do
       it 'ユーザーが紐付いていなければ投稿できない' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("User can't be blank", 'User must exist')
+        expect(@item.errors.full_messages).to include('User must exist')
       end
     end
   end

@@ -7,7 +7,6 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :delivery
   # 入力項目のバリデーション
-  validates :user_id, presence: true
   validates :image, presence: true
   validates :name, presence: true, length: { maximum: 40 }
   validates :info, presence: true, length: { maximum: 1000 }

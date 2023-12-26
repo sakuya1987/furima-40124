@@ -20,5 +20,5 @@ class Item < ApplicationRecord
   # アソシエーション
   belongs_to :user
   has_one_attached :image
-  belongs_to :order
+  has_one :older
 end

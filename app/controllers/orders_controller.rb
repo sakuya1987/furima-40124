@@ -3,7 +3,13 @@ class OrdersController < ApplicationController
 
   def index
     @item = Item.find(params[:item_id])
-    @order_address = OrderAddress.new
+    if current_user.id == @item.user_id || @item.present?
+      # 自身が出品した商品の場合または販売済み商品の場合、トップページにリダイレクトする
+      redirect_to root_path
+    else
+      # 出品者でない場合、通常の処理を行う
+      @order_address = OrderAddress.new
+    end
   end
 
   def create

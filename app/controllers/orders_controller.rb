@@ -3,7 +3,8 @@ class OrdersController < ApplicationController
 
   def index
     @item = Item.find(params[:item_id])
-    if current_user.id == @item.user_id || @item.present?
+
+    if current_user.id == @item.user_id || @item.order.present?
       # 自身が出品した商品の場合または販売済み商品の場合、トップページにリダイレクトする
       redirect_to root_path
     else

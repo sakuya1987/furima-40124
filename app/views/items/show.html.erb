@@ -25,11 +25,14 @@
       </span>
     </div>
 
+    <% if  !@item.order.present?  %>
     <% if user_signed_in? && current_user.id == @item.user_id %>
     <%= link_to "商品の編集", edit_item_path(@item.id), method: :get, data: { turbo: false }, class: "item-red-btn" %>
     <p class="or-text">or</p>
     <%= link_to "削除",  item_path(@item.id), data: {turbo_method: :delete}, class:"item-destroy" %>
     <% end %>
+    <% end %>
+
 
    <% if  !@item.order.present?  %> 
     <% if user_signed_in? && current_user.id != @item.user_id %>

@@ -23,7 +23,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    redirect_to root_path unless current_user == @item.user
+    # 商品出品者かつ、商品が販売されていない状態であれば、商品編集ができる。
+    # 商品出品者でない場合または商品が販売済みの場合はトップページに戻される
+    redirect_to root_path unless current_user.id == @item.user_id && !@item.order.present?
   end
 
   def update
